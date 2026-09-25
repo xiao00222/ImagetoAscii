@@ -18,7 +18,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:5225/api/convert", {
+      const res = await fetch("/api/convert", {
         method: "POST",
         body: formData,
       });

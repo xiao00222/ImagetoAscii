@@ -10,12 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite("Data Source=asciiart.db"));
 
-builder.Services.AddCors(o => o.AddPolicy("AllowReact", p =>
-    p.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod()));
+// builder.Services.AddCors(o => o.AddPolicy("AllowReact", p =>
+//     p.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
-app.Urls.Add("http://localhost:5225"); // fixed port so frontend can rely on it
-app.UseCors("AllowReact");
+// app.Urls.Add("http://localhost:5225"); // fixed port so frontend can rely on it
+// app.UseCors("AllowReact");
 
 using (var scope = app.Services.CreateScope())
 {
