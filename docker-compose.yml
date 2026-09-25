@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./backend/AsciiArtify.Api
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:5225
+    expose:
+      - "5225"
+    volumes:
+      - backend-data:/app/Data
+
+  frontend:
+    build: 
+      context: ./frontend/imagetoascii
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  backend-data:
