@@ -28,6 +28,7 @@ appsettings.Development.json
 appsettings.*.json
 !appsettings.json
 secrets.json
+*.db
 
 ## ---------- Node / React / Vite ----------
 node_modules/
